@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+    <html>  
+
+    <!----------------------------------------------------------------------------->
+    <!----------------------------------------------------------------------------->
+
+    <head>
+
+        <!-- Title -->
+        <title> Liam McManus || Hang Man</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="javaScript.js"></script>
+
+    </head>
+
+    <!----------------------------------------------------------------------------->
+    <!----------------------------------------------------------------------------->
+
+    <body>
+
+        <!-- First Content -->
+        <div id="show-firstContent" style="display: block;">
+            <div class="content">
+
+                <!-- Heading -->
+                <h1> Hang Man </h1>
+
+                <!-- Paragraph 1 -->
+                <div class="extraSmallText">
+                <p1> Hangman is a guessing game for two or more players. <br>
+                 One player thinks of a word, phrase or sentence and <br>
+                 the other tries to guess it by suggesting letters   <br>
+                 within a certain number of guesses.                 <br>
+                </p1>
+                </div>
+
+                <div class="extraSmallText">
+                    <h2> Rules </h2>
+                </div>
+
+                <div class="smallText">
+                <p2>
+                    The word to guess is represented by a row of dashes <br>
+                    representing each letter of the word. Rules may <br>
+                    permit or forbid proper nouns, such as names, places,<br>
+                    brands, or slang. If the guessing player suggests a <br>
+                    letter which occurs in the word, the other player writes <br>
+                    it in all its correct positions. If the suggested letter <br>
+                    does not occur in the word, the other player draws one<br>
+                    element of a hanged stick figure as a tally mark.<br>
+                    <br>
+                    The player guessing the word may, at any time, attempt<br>
+                    to guess the whole word. If the word is correct, the <br>
+                    game is over and the guesser wins. Otherwise, the other <br>
+                    player may choose to penalize the guesser by adding an <br>
+                    element to the diagram. On the other hand, if the guesser <br>
+                    makes enough incorrect guesses to allow the other player <br>
+                    to complete the diagram, the guesser loses. However,<br>
+                    the guesser can also win by guessing all the letters <br>
+                    that appear in the word, thereby completing the word, <br>
+                    before the diagram is completed.<br>
+                </p>
+                </div>
+
+                <div class="extraSmallText">
+                <h2> Origin </h2>
+
+                <p2>
+                    Though the origins of the game are unknown, a <br>
+                    variant is mentioned in a book of children's games <br>
+                    assembled by Alice Gomme in 1894 called Birds, Beasts, <br>
+                    and Fishes. This version lacks the image of a hanged <br>
+                    man, instead relying on keeping score as to the number <br>
+                    of attempts it took each player to fill in the blanks. <br>
+                    <br>
+                    A version which incorporated hanging imagery was described <br>
+                    in a 1902 Philadelphia Inquirer article, which stated <br>
+                    that it was popular at "White Cap" parties hosted by <br>
+                    "Vigilance Committees" where guests would wear "white <br>
+                    peaked caps with masks" <br>
+                </p2>
+                </div>
+                <br>
+
+                <!-- Paragraph 2 -->
+                <div class="extraSmallText">
+                <p3> To begin a game please select the start button on the left. </p3>
+                </div>
+            </div>
+        </div>
+
+        <!----------------------------------------------------------------------------->
+        <!----------------------------------------------------------------------------->
+
+         <!-- Hangman Page -->
+         <div id="show-secondContent" style="display: none;">
+            <div class="content">
+
+                <!-- Heading -->
+                <h1> Hang Man </h1>
+                <p> As stated before every wrong guess will<br>
+                    result in a limb added on, put you guesses <br>
+                    in the labeled box.</p>
+
+            <br>
+
+                <!-- HangmanImage -->
+                <img src = "images/Image 22-05-2022 at 18.38.jpg" id="hangManImage" width=40%>
+
+            <br>
+            <br>
+            
+            <!-- Hint and Guesses -->
+            <div class = "hintText">
+
+                <label id="hint"></label>
+
+                <br>
+                <br>
+
+                <p> Previous Guess:</p>
+
+                <br>
+
+                <label id="guessesBox"></label>
+
+            </div>
+
+
+            <!-- Inputbox for text -->
+            <div class="guesses">
+
+                <p> Please enter the leter you want to <br>
+                    guess in the text box bellow.</p>
+
+            <label for="word">Guess:</label>
+            <input type="text"
+             id="guess">
+            
+             <br>
+             <br>
+
+             <div class = "button2" onclick="guess()">
+                <p><b> Guess</b></p>
+            </div>
+
+             </div>
+        </div>
+        </div>
+
+        <!----------------------------------------------------------------------------->
+        <!----------------------------------------------------------------------------->
+
+        <div class="sidenav">
+
+            <h2> Menu </h2>
+
+            <!-- Start Button -->
+            <a onclick = startGame()> Start </a>
+
+            <!-- Other Projects -->
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">Other Projects</button>
+                <div id="myDropdown" class="dropdown-content">
+                  <a href="Colour Flipper/randomRGB.html">Colour Flipper</a>
+                  <a href="Currecncy Exchange/currencyExchange.html">Currency Exchange</a>
+                  <a href="https://www.apple.com">Apple Web</a>
+                </div>
+              </div>
+
+            <!-- Close -->
+            <a onclick="self.close()">Close Page</a>
+        </div>
+
+        <div class = "rightNav">
+        </div>
+
+        <!----------------------------------------------------------------------------->
+        <!----------------------------------------------------------------------------->
+
+        <!-- Overlay -->
+        <div id="overlay"></div>
+
+        <!-- Box -->
+        <div id="show-text" style="display: none;">
+            <div class="boxText">
+            
+            <h3>Start Game</h3>
+            <div id="smallText"><p3> Please input your word or phrase <br>
+                                     that the oposing team will have to guess.</p3></div> 
+            
+            <br>
+
+            <!-- Input Box -->
+            <label for="word">Phrase:</label>
+            <input type="text"
+             id="word">
+
+ 
+             <br>
+             <br>
+
+            <div class = "button" onclick="submitBtn()">
+                <p><b> Start Game </b></p>
+            </div>
+
+            </div>
+        </div>
+
+        <!----------------------------------------------------------------------------->
+        <!----------------------------------------------------------------------------->
+
+        <!--Loss Screen-->
+        <div id="lossScreen" style="display: none;">
+            <div class="lossBoxText">
+                <h3>You Lose</h3>
+                <div id="smallText"><p3> To restart please press the button below. <br></p3></div> 
+
+                 <br>
+    
+                <div class = "button" onclick="restart()">
+                    <p><b> Restart </b></p>
+
+            </div>
+        </div>
+        </div>
+
+        <!----------------------------------------------------------------------------->
+        <!----------------------------------------------------------------------------->
+
+        <!--Win Screen-->
+        <div id="winScreen" style="display: none;">
+            <div class="winBoxText">
+                <h3>You Win</h3>
+                <div id="smallText"><p3> To restart please press the button below. <br></p3></div> 
+
+                 <br>
+    
+                <div class = "button" onclick="restart()">
+                    <p><b> Restart </b></p>
+
+            </div>
+        </div>
+        </div>
+
+    </body>
+
+    </html>
